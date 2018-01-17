@@ -30,6 +30,18 @@ class InitialScene extends Component {
         inspector="url: https://aframe.io/releases/0.6.1/aframe-inspector.min.js"
         cursor="rayOrigin: mouse"
       >
+        <a-assets>
+          <img
+            id="groundTexture"
+            alt="ground texture"
+            src="https://cdn.aframe.io/a-painter/images/floor.jpg"
+          />
+          <img
+            id="skyTexture"
+            alt="sky texture"
+            src="https://cdn.aframe.io/a-painter/images/sky.jpg"
+          />
+        </a-assets>
         <Entity
           id="entity--box"
           primitive="a-box"
@@ -64,7 +76,25 @@ class InitialScene extends Component {
           color="#7BC8A4"
         />
 
-        <Entity primitive="a-sky" color="#4286f4" />
+        <Entity
+          primitive="a-sky"
+          height="2048"
+          radius="30"
+          src="#skyTexture"
+          theta-length="90"
+          width="2048"
+          segments-height="5"
+          segments-width="8"
+        />
+        <Entity
+          primitive="a-plane"
+          color="#4286f4"
+          src="#groundTexture"
+          rotation="-90 0 0"
+          position="0 -0.01 0"
+          height="100"
+          width="100"
+        />
       </Scene>
     );
   }
