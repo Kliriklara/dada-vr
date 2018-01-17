@@ -8,6 +8,10 @@ import ReactDOM from 'react-dom';
 import { Scene, Entity } from 'aframe-react';
 
 require('aframe');
+const extras = require('aframe-extras');
+// TODO only register needed packages
+// atm kinetic-body and controls are used
+extras.registerAll();
 require('./index.css');
 
 /**
@@ -42,6 +46,62 @@ class InitialScene extends Component {
             src="https://cdn.aframe.io/a-painter/images/sky.jpg"
           />
         </a-assets>
+
+        {/* <!-- User / Camera --> */}
+        <Entity
+          id="player"
+          camera
+          universal-controls
+          kinematic-body
+          position="0 1.8 0"
+        />
+
+        <Entity
+          id="box"
+          primitive="a-box"
+          material="color: red"
+          position="-5 0 0"
+          rotation={{ x: 0, y: 90, z: 0 }}
+          color="tomato"
+          depth="0.2"
+          height="8"
+          width="10"
+          static-body
+        />
+        <Entity
+          id="box"
+          primitive="a-box"
+          material="color: red"
+          position="5 0 0"
+          rotation={{ x: 0, y: 90, z: 0 }}
+          color="tomato"
+          depth="0.2"
+          height="8"
+          width="10"
+          static-body
+        />
+        <Entity
+          id="box"
+          primitive="a-box"
+          material="color: red"
+          position="0 0 -5"
+          color="tomato"
+          depth="0.2"
+          height="8"
+          width="10"
+          static-body
+        />
+        <Entity
+          id="box"
+          primitive="a-box"
+          material="color: red"
+          position="0 0 5"
+          color="tomato"
+          depth="0.2"
+          height="8"
+          width="10"
+          static-body
+        />
         <Entity
           id="entity--box"
           primitive="a-box"
@@ -56,24 +116,6 @@ class InitialScene extends Component {
           position={{ x: 0, y: 1.25, z: -5 }}
           radius={1.25}
           color="#EF2D5E"
-        />
-        <Entity
-          id="entity--cylinder"
-          primitive="a-cylinder"
-          position={{ x: 1, y: 0.75, z: -3 }}
-          radius={0.5}
-          width={4}
-          height={1.5}
-          color="#FFC65D"
-        />
-        <Entity
-          id="entity--plane"
-          primitive="a-plane"
-          position={{ x: 0, y: 0, z: -4 }}
-          rotation={{ x: -90, y: 0, z: 0 }}
-          width={4}
-          height={4}
-          color="#7BC8A4"
         />
 
         <Entity
@@ -94,6 +136,7 @@ class InitialScene extends Component {
           position="0 -0.01 0"
           height="100"
           width="100"
+          static-body
         />
       </Scene>
     );

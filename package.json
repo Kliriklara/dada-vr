@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "aframe": "^0.6.1",
+    "aframe-extras": "^3.13.1",
     "aframe-react": "^4.3.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
